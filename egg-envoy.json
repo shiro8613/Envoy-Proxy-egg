@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2022-04-29T03:58:20+09:00",
+    "name": "EnvoyProxy",
+    "author": "tom@tomservs.net",
+    "description": "EnvoyProxy",
+    "features": null,
+    "images": [
+        "tomservs\/envoy-debian:latest"
+    ],
+    "file_denylist": [],
+    "startup": "envoy -c \/home\/container\/envoy\/envoy.yaml",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \":\/home\/container$\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\ncd \/mnt\/server\r\n\r\nif [ ! -f envoy\/envoy.yaml ]; then\r\n    echo -e \"Downloading envoy.conf\"\r\n    mkdir envoy\r\n    curl -o envoy\/envoy.yaml https:\/\/raw.githubusercontent.com\/flan0910\/Envoy-Proxy-egg\/master\/envoy\/envoy.yaml\r\nfi",
+            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": []
+}
